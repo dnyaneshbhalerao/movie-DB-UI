@@ -6,14 +6,17 @@ const os  = require('os');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 let uglifyJsPlugin = new UglifyJsPlugin({
-        uglifyOptions:{
-          parallel: os.cpus().length - 1,
-          compress: true,
-          ecma:5,
-          warnings:false,
-          ie8:true,
-          cache: true
-        }
+      uglifyOptions:{
+        output: {
+          comments: false, // remove comments
+        },
+        parallel: os.cpus().length - 1,
+        compress: true,
+        ecma:5,
+        warnings:false,
+        ie8:true,
+        cache: true
+      }
       });
 
 const PATHS = {
@@ -29,13 +32,13 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry:{
     app: PATHS.app
   },
   devServer: {
     // files are served from this folder
-    contentBase: 'dist',
+    contentBase: 'build',
     // support HTML5 History API for react router
     historyApiFallback: true,
     hot: true,

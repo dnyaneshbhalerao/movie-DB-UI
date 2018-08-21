@@ -8,7 +8,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        This is my test 
+        MY Movie Db App is under construction
       </div>
     )
   }
