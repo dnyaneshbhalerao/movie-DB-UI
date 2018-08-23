@@ -12,7 +12,7 @@ let uglifyJsPlugin = new UglifyJsPlugin({
         },
         parallel: os.cpus().length - 1,
         compress: true,
-        ecma:5,
+        ecma:6,
         warnings:false,
         ie8:true,
         cache: true
@@ -32,7 +32,7 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry:{
     app: PATHS.app
   },
@@ -55,9 +55,9 @@ module.exports = {
   },
   output: {
     path: PATHS.build,
-    filename: "mainAppBundle.js"
+    filename: "appBundle.js"
   },
-  devtool: "source-map",
+  devtool: "eval-source-map",
   module:{
     rules: [{
         test: /\.(jsx||js)$/,
