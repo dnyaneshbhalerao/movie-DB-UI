@@ -1,6 +1,6 @@
-//All action constants goes here
+// All action constants goes here
 const actionType = {
-  
+
 }
 
-export default actionType;
+export default actionType
